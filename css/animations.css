@@ -1,0 +1,172 @@
+/*       Folha de estilos de Animações - Connect4       */
+/*           João Lucas Pires - up201606617             */
+/*          João Pedro Aguiar - up201606361             */
+
+/*Letras a deslizar*/
+.bounce-in-top {
+	animation: bounce-in-top 0.6s both;
+}
+
+@keyframes bounce-in-top {
+  0% {
+    transform: translateY(-500px);
+    animation-timing-function: ease-in;
+    opacity: 0;
+  }
+  38% {
+    transform: translateY(0);
+    animation-timing-function: ease-out;
+    opacity: 1;
+  }
+  55% {
+    transform: translateY(-65px);
+    animation-timing-function: ease-in;
+  }
+  72% {
+    transform: translateY(0);
+    animation-timing-function: ease-out;
+  }
+  81% {
+    transform: translateY(-28px);
+  }
+  90% {
+    transform: translateY(0);
+    animation-timing-function: ease-out;
+  }
+  95% {
+    transform: translateY(-8px);
+    animation-timing-function: ease-in;
+  }
+  100% {
+    transform: translateY(0);
+    animation-timing-function: ease-out;
+  }
+}
+
+/*Texto 3D para baixo*/
+.text-pop-up-bottom {
+	animation: text-pop-up-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+@keyframes text-pop-up-bottom {
+  0% {
+    transform: translateY(0);
+    transform-origin: 50% 50%;
+    text-shadow: none;
+  }
+  100% {
+    transform: translateY(50px);
+    transform-origin: 50% 50%;
+    text-shadow: 0 1px 0 #cccccc, 0 2px 0 #cccccc, 0 3px 0 #cccccc, 0 4px 0 #cccccc, 0 5px 0 #cccccc, 0 6px 0 #cccccc, 0 7px 0 #cccccc, 0 8px 0 #cccccc, 0 9px 0 #cccccc, 0 50px 30px rgba(0, 0, 0, 0.3);
+  }
+}
+
+/*Círculos a saltar*/
+body #container {
+  transform: translate(-50%, -50%);
+  perspective: 600px;
+  user-select: none;
+  position: absolute;
+  left: 50%;
+  bottom: 3%;
+  width: 500px;
+}
+body #container div.ball:nth-of-type(1) {
+  animation: bounce 0.75s ease-in infinite alternate;
+  animation-delay: 0s;
+  background: yellow;
+}
+body #container div.ball:nth-of-type(2) {
+  animation: bounce 0.75s ease-in infinite alternate;
+  animation-delay: 0.2s;
+  background: red;
+}
+body #container div.ball:nth-of-type(3) {
+  animation: bounce 0.75s ease-in infinite alternate;
+  animation-delay: 0.4s;
+  background: yellow;
+}
+body #container div.ball:nth-of-type(4) {
+  animation: bounce 0.75s ease-in infinite alternate;
+  animation-delay: 0.6s;
+  background: red;
+}
+body #container div.ball:nth-of-type(5) {
+  animation: bounce 0.75s ease-in infinite alternate;
+  animation-delay: 0.8s;
+  background: yellow;
+}
+body #container div.ball:nth-of-type(6) {
+  animation: bounce 0.75s ease-in infinite alternate;
+  animation-delay: 1s;
+  background: red;
+}
+body #container div.ball:nth-of-type(7) {
+  animation: bounce 0.75s ease-in infinite alternate;
+  animation-delay: 1.2s;
+  background: yellow;
+}
+body #container div.ball:nth-of-type(8) {
+  animation: bounce 0.75s ease-in infinite alternate;
+  animation-delay: 1.4s;
+  background: red;
+}
+body #container div.ball {
+  border-radius: 50%;
+  box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.5), 0px 0px 50px rgba(120, 255, 120, 0.5) inset;
+  transform: translateY(-50px);
+  transform-style: preserve-3d;
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+}
+body #container div.ball:last-child {
+  margin-right: 0px;
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(-50px);
+  }
+  95% {
+    border-radius: 50%;
+  }
+  100% {
+
+    transform: translateY(50px);
+    border-radius: 50% 50% 10% 10%;
+  }
+}
+
+/*Entrada do texto de rodapé*/
+.text-shadow-pop-bl {
+	        animation: text-shadow-pop-bl 0.6s both;
+}
+
+@keyframes text-shadow-pop-bl {
+  0% {
+    text-shadow: 0 0 #555555, 0 0 #555555, 0 0 #555555, 0 0 #555555, 0 0 #555555, 0 0 #555555, 0 0 #555555, 0 0 #555555;
+    transform: translateX(0) translateY(0);
+  }
+  100% {
+    text-shadow: -1px 1px white, -2px 2px white, -3px 3px white, -4px 4px white, -5px 5px white;
+    transform: translateX(5px) translateY(-5px);
+  }
+}
+
+/*Elementos a focar na entrada*/
+.text-focus-in {
+	animation: text-focus-in 0.5s cubic-bezier(0.550, 0.055, 0.675, 0.190) both;
+}
+
+@keyframes text-focus-in {
+  0% {
+    filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    filter: blur(0px);
+    opacity: 1;
+  }
+}

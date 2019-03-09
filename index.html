@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="pt">
+	<head>
+		<title>4 em linha!</title>
+		
+		<!-- Meta-tags -->
+		<meta charset="UTF-8">
+  		<meta name="description" content="4 em linha">
+ 		<meta name="keywords" content="4linha connect4 jogo TW game Web">
+  		<meta name="author" content="João Lucas Pires, João Pedro Aguiar">
+  		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		<!--Ficheiros de apoio-->
+			<!--Folhas de Estilo-->
+			<link href="https://fonts.googleapis.com/css?family=Krub" rel="stylesheet">
+			<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+			<link rel="stylesheet" href="assets/css/animations.css">
+			<!--Scripts-->
+			<script src="assets/js/board.js"></script>
+			<script src="assets/js/jsStyle.js"></script>
+			<script src="assets/js/server.js"></script>
+	</head>
+	<body>
+		<h1 class="title text-pop-up-bottom">Connect<sub>4</sub></h1>
+		<div class="bootcontainer" id="bootcontainer">
+		<br>
+		<br>
+		<div class="menu text-focus-in">
+			<a href="#" class="buttontext btn" onclick="activateBlur('localplay');">Jogo Local</a>
+			<a href="#" class="buttontext btn" onclick="activateBlur('remoteplay');">Jogo Remoto</a>
+			<a href="#" class="buttontext btn" onclick="activateBlur('instructions');">Instruções</a>
+			<a href="#" class="buttontext btn" onclick="activateBlur('ranking');">Ranking Remoto</a>
+			<a href="#" class="buttontext btn" onclick="activateBlur('rankingl');">Ranking Local</a>
+		</div>
+		<br>
+		<div class="centercontainer" id="centercontainer">
+			<div class="localplay text-focus-in" id="localplay">
+				<form action="#" method="post" id="lform" onsubmit="initialize();return false;">
+					<div class="icol">
+						<label>Jogo contra o CPU: </label>
+						<br>
+						<input name="cpuonoff"  type="radio" value="1" checked="checked"><span>Sim</span>
+						<input name="cpuonoff" type="radio" value="0"><span>Não</span>
+						<br>
+						<br>
+						<label>1º a jogar: </label>
+						<br>
+						<input name="firstplay" type="radio" value="1" checked="checked"><span>Jogador 1</span>
+						<input name="firstplay" type="radio" value="2"><span>Jogador 2</span>
+						<br>
+						<br>
+						<label>Tamanho do tabuleiro: </label>
+						<br>
+						<span>Largura:</span> 
+						<select name="boardWidth" id="boardWidth">
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+							<option value="10">10</option>
+						</select>
+						<br>
+						<span>Altura: </span>
+						<select name="boardHeight" id="boardHeight">
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+							<option value="10">10</option>
+						</select>
+						<br>
+					</div>
+					<div class="icol">
+						<label>Cores das peças: </label>
+						<br>
+						<span>Jogador 1: </span> 
+						<select name="pieceColor1" id="pieceColor1">
+							<option value="yellow" selected="selected">Amarelo</option>
+							<option value="red">Vermelho</option>
+							<option value="green">Verde</option>
+							<option value="blue">Azul</option>
+							<option value="purple">Roxo</option>
+						</select>
+						<br>
+						<span>Jogador 2: </span> 
+						<select name="pieceColor2" id="pieceColor2">
+							<option value="yellow">Amarelo</option>
+							<option value="red" selected="selected">Vermelho</option>
+							<option value="green">Verde</option>
+							<option value="blue">Azul</option>
+							<option value="purple">Roxo</option>
+						</select>
+						<br>
+						<br>
+						<br>
+						<label>Cor do Tabuleiro: </label><br>
+						<select name="boardColor" id="boardColor">
+							<option value="twhite" selected="selected">Branco</option>
+							<option value="torange">Laranja</option>
+							<option value="tlightblue">Azul Claro</option>
+							<option value="tbrown">Bordô(?)</option>
+						</select>
+						<br>
+						<br>
+						<br>
+						<input name="lsubmit" id="lsubmit" type="submit" value="Jogar">
+					</div>
+				</form>
+
+			</div>
+			<div class="remoteplay hide" id="remoteplay">
+				<form action="#" method="post" id="formServer" onsubmit="startAndPair();return false;">
+					<label>Utilizador: </label>
+					<input name="uname" id="sUname" type="text">
+					<br>
+					<br>
+					<label>Password: </label>
+					<input name="psw" id="sPsw" type="text">
+					<br>
+					<br>
+					<label>Tamanho do tabuleiro: </label>
+						<br>
+						<span>Largura:</span> 
+						<select name="boardWidthON" id="boardWidthON">
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+							<option value="10">10</option>
+
+						</select>
+						<br>
+						<span>Altura: </span>
+						<select name="boardHeightON" id="boardHeightON">
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+							<option value="10">10</option>
+						</select>
+						<br><br/>
+						<label>Cores das peças: </label>
+						<br>
+						<span>Jogador 1: </span> 
+						<select name="pieceColor1" id="pieceColor1r">
+							<option value="yellow" selected="selected">Amarelo</option>
+							<option value="red">Vermelho</option>
+							<option value="green">Verde</option>
+							<option value="blue">Azul</option>
+							<option value="purple">Roxo</option>
+						</select>
+						<br>
+						<span>Jogador 2: </span> 
+						<select name="pieceColor2" id="pieceColor2r" >
+							<option value="yellow">Amarelo</option>
+							<option value="red" selected="selected">Vermelho</option>
+							<option value="green">Verde</option>
+							<option value="blue">Azul</option>
+							<option value="purple">Roxo</option>
+						</select>
+						<br>
+						<br>
+						<br>
+						<label>Cor do Tabuleiro: </label><br>
+						<select name="boardColor" id="boardColorr">
+							<option value="twhite" selected="selected">Branco</option>
+							<option value="torange">Laranja</option>
+							<option value="tlightblue">Azul Claro</option>
+							<option value="tbrown">Bordô(?)</option>
+						</select>
+						<br/><br/>
+					<input type="submit" value="Entrar" style="font-size:25px">
+				</form>
+			</div>
+			<div class="instructions hide" id="instructions">
+				<div class="icol">
+					<h2>Instruções de jogo</h2>
+         			<p class="instructiontext">O jogo apresentado é o 4 em linha / Connect 4.
+          			<br>
+		            Em cada turno, o jogador escolhe uma coluna e a sua peça
+		            irá se posicionar na posição mais abaixo disponível nessa coluna.<br>Se algum jogador conseguir formar uma linha horizontal, vertical ou diagonal com 4 peças, ganha o jogo.
+		            <br>
+		            A página inicial permite ver as instruções, classificações do jogadores e configurar o jogo.
+         			</p>
+     			</div>
+     			<div class="icol">
+        			<h3>Configurações</h3>
+         			<p class="instructiontext">O jogo permite mudar as seguintes configurações:</p>
+         			<ul>
+			            <li>Escolher quem joga primeiro.</li>
+			            <li>Mudar a altura e largura do tabuleiro.</li>
+			            <li>Ativar a opção de jogar contra o CPU.</li>
+			            <li>Ajustar a dificuldade do CPU.</li>
+			         </ul> 
+         		</div> 
+    		</div>
+    		<div class="ranking hide" id="ranking">	
+    			
+    			<form action="#" method="post" onsubmit="parseRanking();return false;" id="rankForm">
+    				<h3 id="rankingtxt">Escolha o tamanho para o qual deseja ver as classificações:</h3>
+    					<span>Largura: </span>
+    					<input type="number" id="rankingWidth">
+						<br>
+						<span>Altura: </span>
+    					<input type="number" id="rankingHeight">
+						<br>
+					<input type="submit" value="Submeter">
+				</form>
+    		</div>
+			<div class="ranking hide" id="rankingl">
+				<!--Tabela here-->
+    		</div>
+		</div>
+		<div class="footer">
+			<h2 class="workdoneby text-shadow-pop-bl">Trabalho realizado por:</h2>
+			<h3 class="people">João Lucas Pires, up201606617</h3>
+			<h3 class="people">João Pedro Aguiar, up201606361</h3>
+		</div>
+		<p>
+    		<a href="http://jigsaw.w3.org/css-validator/check/referer">
+        	<img class="validcss" src="http://jigsaw.w3.org/css-validator/images/vcss" alt="CSS válido!" />
+    		</a>
+		</p>
+		<div id="container">
+		  <div class="ball"></div>
+		  <div class="ball"></div>
+		  <div class="ball"></div>
+		  <div class="ball"></div>
+		  <div class="ball"></div>
+		  <div class="ball"></div>
+		  <div class="ball"></div>
+		  <div class="ball"></div>
+		</div>
+	</div>
+</body>

@@ -1,0 +1,394 @@
+/*       Folha de estilos - Connect4       */
+/*     João Lucas Pires - up201606617      */
+/*     João Pedro Aguiar - up201606361     */
+
+/*================================================*/
+/* Div's e containers */
+/*================================================*/
+	body {
+		background: #333;
+		color:transparent;
+	}
+	
+	/*Cabeçalho*/
+	.header {
+		border-bottom: grey solid 2px;
+		border-radius: 0 0 85% 85% / 30%;
+		width:100%;
+		position:absolute;
+		left:0;
+		top:0;
+		overflow: hidden;
+	}
+
+	/*Botões do index e do jogo*/
+	.menu {
+		width:70%;
+		margin:10px auto;
+	}
+
+	#btndiv {
+		text-align: center;
+		margin-top:80px;
+	}
+	
+	#btn1 {
+		margin-right:10px;
+	}
+	
+	/*Container do formulário de jogo Remotoa*/
+	.remoteplay {
+		width:50%;
+		margin: 0 auto;
+		text-align: center;
+	}
+
+	/*Container de configuração do jogo local*/
+	.localplay {
+		width:50%;
+		margin: 0 auto;
+		text-align: center;
+	}
+
+	/*Container central do tabuleiro*/
+	#boardContainer {
+		display:block;
+		text-align: center;
+		margin: 25px 0 0 0;
+	}
+
+	/*Coluna do tabuleiro*/
+	.col {
+		margin:0 auto;
+		display:inline-block;
+		height:100%;
+		width:100px;
+		border: 3px black solid;
+		border-radius: 20px;
+		box-shadow: inset 2px 2px 2px rgba(255, 255, 255, .4), inset -2px -2px 2px rgba(0, 0, 0, .4);
+	}
+	
+	.col:hover {
+		outline: none;
+	    border-color: #9ecaed;
+	    box-shadow: 0 0 10px #9ecaed;
+	}
+
+	/*Divisão em duas colunas para elementos da página inicial - container com dois icol*/
+	.icol {
+		float:left;
+		text-align: center;
+		width: 300px;
+		display:block;
+		color:white;
+		background: transparent;
+		margin-top:-10px;
+	}
+
+	/*Painel das Instruções*/
+	.instructions {
+		margin:0 auto;
+		width:600px;
+		font-family: 'Krub',sans-serif;
+	}
+
+	/*Rodapé*/
+	.footer {
+    	position:absolute;
+    	bottom:5%;
+    	left:2%;
+    }
+
+    .ranking {
+    	color:white;
+    	width: 50%;
+    	margin: 0 auto;
+    	text-align: center;
+    }
+
+    table {
+    	width:600px;
+		border: 1px white solid;
+		position:fixed;
+		top:50%;
+
+
+    }
+
+    th,td,tr {
+    	font-family: 'Krub',sans-serif;
+    	font-weight: bold;
+    	color:white;
+    	font-size:15pt;
+    	border: 1px white dashed;
+    }
+/*================================================*/
+/* Imagens */
+/*================================================*/
+	.validcss {
+		position: absolute;
+		right:0;
+		bottom:0;
+		margin:10px 10px 10px 10px;
+		width:88px;
+		height:31px;
+	}
+
+/*================================================*/
+/* Tipos de Letra */
+/*================================================*/
+	/*Tipos de Letra externas (por Google Web Fonts)*/
+	/*Krub ; fallback: sans-serif*/
+	
+	/*Cabeçalho*/
+	.title {
+		text-align: center;
+		font-family:'Krub',sans-serif;
+		font-size: 30pt;
+		margin-top:-30px;
+		color:white;
+		background: transparent;
+	}
+
+	.subtitle {
+		text-align: center;
+	}
+
+	/*Texto das Instruções*/
+	.instructiontext {
+		text-align: center;
+	}
+	#rankingtxt {
+		font-family:'Krub',sans-serif;
+		color:white;
+		margin-left:-100px;
+		margin-top:-20px;
+	}
+	/*Não permitir que o user selecione o texto*/
+	h2,h1,h3,p,span,label,button,a {
+		user-select: none;
+    }
+
+    /*Labels dos formulários*/
+    label {
+		font-family: 'Krub',sans-serif;
+		color:white;
+		background: transparent;
+		font-size: 15pt; 
+	}
+
+	/*Rodapé - Feito Por:*/
+    .workdoneby {
+    	font-family:'Krub', sans-serif;
+    	color:grey;
+    	background: transparent;
+    	font-size:20pt;
+    }
+    .people {
+    	font-family: 'Krub', sans-serif;
+    	color:grey;
+    	background: transparent;
+    	font-size: 15pt;
+    	line-height: 5px;
+    }
+
+/*================================================*/
+/* Tabuleiro - Cores */
+/*================================================*/
+	 /*Cores do tabuleiro*/
+	/*Branco*/
+	.twhite {
+		background: white;
+		color:transparent;
+	}
+	/*Laranja*/
+	.torange {
+		background: orange;
+		color:transparent;
+	}
+	/*Castanho/Bordô*/
+	.tbrown {
+		background: brown;
+		color: transparent;
+	}
+	/*Azul claro*/
+	.tlightblue {
+		background: #add8e6;
+		color: transparent;
+	}	
+	 /*Cores das peças*/
+	.yellow {
+		fill:yellow;
+	}
+
+	.red {
+		fill: red;
+	}
+
+	/*White significa "vazio" ( cor do fundo) */
+	.white {
+			fill:#333;
+	}
+
+	.blue {
+		fill: blue;
+	}
+
+
+	.purple {
+		fill: purple;
+	}
+	.green {
+		fill: green;
+	}
+
+/*================================================*/
+/* Outros */
+/*================================================*/
+	
+	/*Formulários*/
+	input,select {
+		border-radius: 25px;
+		padding-top:2px;
+		margin-top:5px;
+		display:inline-block;
+	}
+	
+	select {
+		width:40px;
+	}
+	
+	#pieceColor1, #pieceColor2, #boardColor {
+		width:80px;
+	}
+	
+	#lsubmit {
+		margin: 0 auto;
+		width:50%;
+		height:30px;
+		font-weight: bold;
+	}
+
+	.warning {
+		text-shadow: -1px 0 red, 0 1px red, 1px 0 red, 0 -1px red;
+	}
+
+	span {
+		font-family: 'Krub', sans-serif;
+		color:white;
+		background: transparent;
+	}
+
+	/*Classes e Triggers para JS*/
+	
+	/*Esconder elemento*/
+	.hide {
+		display:none;
+	}
+	
+	/*Disposição dos circulos*/
+	.circle {
+		display: block;
+	}
+
+	/*Estilos dos botões*/
+	.buttontext {
+		box-shadow:inset 0px 1px 0px 0px #ffffff;
+		background:linear-gradient(to bottom, #ffffff 5%, #f6f6f6 100%);
+		background-color:#ffffff;
+		border-radius:6px;
+		border:1px solid #dcdcdc;
+		display:inline-block;
+		cursor:pointer;
+		color:#666666;
+		font-family:'Krub',sans-serif;
+		font-weight: bold;
+		font-size:20px;
+		padding:10px 24px;
+		text-decoration:none;
+		text-shadow:0px 1px 0px #ffffff;
+	}
+
+	.btn {
+		display:inline-block;
+	}
+	
+	.indexbtn {
+		display:block;
+		margin: 0 auto;
+		text-align: center;
+		width: 50%;
+	}
+
+
+	#aespera,#boardContainer {
+		margin-top:150px;
+
+	}
+
+	#rankingWidth,#rankingHeight {
+		width:50px;
+	}
+
+	#leaveBTN {
+		position: absolute;
+		left:47%;
+		top:100px;
+	}
+
+	#rankForm {
+		margin-left:-40px;
+	}
+	#rldbtn {
+		height:10px;
+		font-size:10pt;
+		position:fixed;
+		left:85%;
+		top:85%;
+
+	}
+
+	/* The alert message box */
+.alert {
+    padding: 20px;
+    background-color: #f44336; /* Red */
+    color: white;
+    margin-bottom: 15px;
+    animation: fadein 1s;
+    width:200px;
+}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@keyframes fadeout {
+    from { opacity: 1; }
+    to   { opacity: 0; }
+}
+
+.alertexit {
+	animation: fadeout 1s;
+}
+
+.closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.closebtn:hover {
+    color: black;
+}
+
+#pieceColor1r,#pieceColor2r,#boardColorr {
+	width:80px;
+}
+
+
